@@ -10,6 +10,10 @@ function App() {
   const [submittedAge, setSubmittedAge] = useState("");
   const [submittedEmail, setSubmittedEmail] = useState("");
   const [submittedPhone, setSubmittedPhone] = useState("");
+  const [submittedSchoolName, setSubmittedSchoolName] = useState("");
+  const [submittedTitle, setSubmittedTitle] = useState("");
+  const [submittedFromDate, setSubmittedFromDate] = useState("");
+  const [submittedToDate, setSubmittedToDate] = useState("");
 
   return (
     <div className="cv_app">
@@ -20,7 +24,12 @@ function App() {
           setSubmittedEmail={setSubmittedEmail}
           setSubmittedPhone={setSubmittedPhone}
         />
-        <EducExp />
+        <EducExp
+          setSubmittedSchoolName={setSubmittedSchoolName}
+          setSubmittedTitle={setSubmittedTitle}
+          setSubmittedFromDate={setSubmittedFromDate}
+          setSubmittedToDate={setSubmittedToDate}
+        />
         <PracExp />
       </div>
       <div className="display">
@@ -29,6 +38,10 @@ function App() {
           submittedAge={submittedAge}
           submittedEmail={submittedEmail}
           submittedPhone={submittedPhone}
+          submittedSchoolName={submittedSchoolName}
+          submittedTitle={submittedTitle}
+          submittedFromDate={submittedFromDate}
+          submittedToDate={submittedToDate}
         />
       </div>
     </div>
