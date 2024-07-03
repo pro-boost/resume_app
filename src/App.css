@@ -48,6 +48,7 @@ body {
   padding: 20px; /* Optional: padding inside the container */
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
