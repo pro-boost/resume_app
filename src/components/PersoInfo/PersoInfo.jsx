@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { TextField, Button, Container, Box } from "@mui/material";
-import "./PersoInfo.css";
 
 function PersoInfo({
   setSubmittedName,
@@ -23,7 +22,7 @@ function PersoInfo({
     setSubmittedName(fullName);
     setSubmittedAge(age);
     setSubmittedEmail(email);
-    setSubmittedPhone(phone); // Corrected to setSubmittedPhone(phone)
+    setSubmittedPhone(phone);
   };
 
   return (
@@ -58,7 +57,7 @@ function PersoInfo({
         />
         <TextField
           label="Phone Number"
-          type="number"
+          type="tel"
           value={phone}
           onChange={handlePhoneChange}
           variant="outlined"

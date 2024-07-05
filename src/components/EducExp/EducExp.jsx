@@ -1,6 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { TextField, Button, Container, Box } from "@mui/material";
-import "./EducExp.css";
 
 function EducExp({
   setSubmittedSchoolName,
@@ -42,7 +41,6 @@ function EducExp({
         />
         <TextField
           label="Title of Study"
-          type="text"
           value={title}
           onChange={handleTitleChange}
           variant="outlined"
