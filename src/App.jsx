@@ -6,60 +6,53 @@ import EducExp from "./components/EducExp/EducExp";
 import PracExp from "./components/PracExp/PracExp";
 
 function App() {
-  const [submittedName, setSubmittedName] = useState("");
-  const [submittedAge, setSubmittedAge] = useState("");
-  const [submittedEmail, setSubmittedEmail] = useState("");
-  const [submittedPhone, setSubmittedPhone] = useState("");
-  const [submittedSchoolName, setSubmittedSchoolName] = useState("");
-  const [submittedTitle, setSubmittedTitle] = useState("");
-  const [submittedFromDate, setSubmittedFromDate] = useState("");
-  const [submittedToDate, setSubmittedToDate] = useState("");
-  const [submittedCompany, setSubmittedCompany] = useState("");
-  const [submittedPosition, setSubmittedPosition] = useState("");
-  const [submittedResponsibilities, setSubmittedResponsibilities] =
-    useState("");
-  const [submittedFrom, setSubmittedFrom] = useState("");
-  const [submittedTo, setSubmittedTo] = useState("");
+  const [personalInfo, setPersonalInfo] = useState({
+    name: "Michael G Scott",
+    age: "24",
+    email: "Micheal@gmail.com",
+    phone: "+133261458621",
+  });
+  const [educExp, setEducExp] = useState({
+    schoolName: "Harvard",
+    title: "Software Developper",
+    startDate: "10/10/2014",
+    endDate: "10/07/2018",
+  });
+  const [pracExp, setPracExp] = useState({
+    companyName: "Facebook",
+    PositionTitle: "Software Developper",
+    Responsibilities: "Manager",
+    startDate: "10/10/2020",
+    endDate: "10/07/2024",
+  });
+  // const [submitted, setSubmitted] = useState({
+  //   PersonalInfo: "",
+  //   EducExp: "",
+  //   PracExp: "",
+  // });
 
+  const handlePersonalInfo = (name, value) => {
+    setPersonalInfo((prevState) => ({ ...prevState, [name]: value }));
+  };
+  const handleEducExp = (field, value) => {
+    setEducExp((prevState) => ({ ...prevState, [field]: value }));
+  };
+  const handlePracExp = (field, value) => {
+    setPracExp((prevState) => ({ ...prevState, [field]: value }));
+  };
   return (
     <div className="cv_body">
       <div className="cv_app">
         <div className="userInput">
-          <PersoInfo
-            setSubmittedName={setSubmittedName}
-            setSubmittedAge={setSubmittedAge}
-            setSubmittedEmail={setSubmittedEmail}
-            setSubmittedPhone={setSubmittedPhone}
-          />
-          <EducExp
-            setSubmittedSchoolName={setSubmittedSchoolName}
-            setSubmittedTitle={setSubmittedTitle}
-            setSubmittedFromDate={setSubmittedFromDate}
-            setSubmittedToDate={setSubmittedToDate}
-          />
-          <PracExp
-            setSubmittedCompany={setSubmittedCompany}
-            setSubmittedPosition={setSubmittedPosition}
-            setSubmittedResponsibilities={setSubmittedResponsibilities}
-            setSubmittedFrom={setSubmittedFrom}
-            setSubmittedTo={setSubmittedTo}
-          />
+          <PersoInfo handlePersonalInfo={handlePersonalInfo} />
+          <EducExp handleEducExp={handleEducExp} />
+          <PracExp handlePracExp={handlePracExp} />
         </div>
         <div className="display">
           <DisplayField
-            submittedName={submittedName}
-            submittedAge={submittedAge}
-            submittedEmail={submittedEmail}
-            submittedPhone={submittedPhone}
-            submittedSchoolName={submittedSchoolName}
-            submittedTitle={submittedTitle}
-            submittedFromDate={submittedFromDate}
-            submittedToDate={submittedToDate}
-            submittedCompany={submittedCompany}
-            submittedPosition={submittedPosition}
-            submittedResponsibilities={submittedResponsibilities}
-            submittedFrom={submittedFrom}
-            submittedTo={submittedTo}
+            personalInfo={personalInfo}
+            educExp={educExp}
+            pracExp={pracExp}
           />
         </div>
       </div>

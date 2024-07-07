@@ -1,70 +1,55 @@
-import React, { useState } from "react";
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function EducExp({
-  setSubmittedSchoolName,
-  setSubmittedTitle,
-  setSubmittedFromDate,
-  setSubmittedToDate,
-}) {
-  const [schoolName, setSchoolName] = useState("");
-  const [title, setTitle] = useState("");
-  const [fromDate, setFromDate] = useState("");
-  const [toDate, setToDate] = useState("");
-
-  const handleSchoolNameChange = (e) => setSchoolName(e.target.value);
-  const handleTitleChange = (e) => setTitle(e.target.value);
-  const handleFromDateChange = (e) => setFromDate(e.target.value);
-  const handleToDateChange = (e) => setToDate(e.target.value);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmittedSchoolName(schoolName);
-    setSubmittedTitle(title);
-    setSubmittedFromDate(fromDate);
-    setSubmittedToDate(toDate);
+function EducExp({ handleEducExp }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    handleEducExp(name, value);
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <Container className="container">
       <h1>Educational Experience</h1>
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
+          name="schoolName"
           label="School Name"
-          value={schoolName}
-          onChange={handleSchoolNameChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
+          name="title"
           label="Title of Study"
-          value={title}
-          onChange={handleTitleChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
-          label="From Date"
+          name="startDate"
+          label="Start Date"
           type="date"
-          value={fromDate}
-          onChange={handleFromDateChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
-          label="To Date"
+          name="endDate"
+          label="End Date"
           type="date"
-          value={toDate}
-          onChange={handleToDateChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
-        <Button type="submit" variant="contained" color="primary">
+        {/* <Button type="submit" variant="contained" color="primary">
           Submit
-        </Button>
+        </Button> */}
       </Box>
     </Container>
   );

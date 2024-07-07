@@ -1,21 +1,6 @@
-import React from "react";
 import { Container, Box, Typography } from "@mui/material";
 
-function DisplayField({
-  submittedName,
-  submittedAge,
-  submittedEmail,
-  submittedPhone,
-  submittedSchoolName,
-  submittedTitle,
-  submittedFromDate,
-  submittedToDate,
-  submittedCompany,
-  submittedPosition,
-  submittedResponsibilities,
-  submittedFrom,
-  submittedTo,
-}) {
+function DisplayField({ personalInfo, educExp, pracExp }) {
   return (
     <Container className="container">
       <h1>DisplayField</h1>
@@ -27,10 +12,10 @@ function DisplayField({
           marginBottom: "20px",
         }}>
         <Typography variant="h5">Personal Information</Typography>
-        <Typography>Full Name: {submittedName}</Typography>
-        <Typography>Age: {submittedAge}</Typography>
-        <Typography>Email: {submittedEmail}</Typography>
-        <Typography>Phone Number: {submittedPhone}</Typography>
+        <Typography>Full Name: {personalInfo.name}</Typography>
+        <Typography>Age: {personalInfo.age}</Typography>
+        <Typography>Email: {personalInfo.email}</Typography>
+        <Typography>Phone Number: {personalInfo.phone}</Typography>
       </Box>
       <Box
         sx={{
@@ -40,10 +25,10 @@ function DisplayField({
           marginBottom: "20px",
         }}>
         <Typography variant="h5">Educational Experience</Typography>
-        <Typography>School Name: {submittedSchoolName}</Typography>
-        <Typography>Title of Study: {submittedTitle}</Typography>
+        <Typography>School Name: {educExp.schoolName}</Typography>
+        <Typography>Title of Study: {educExp.title}</Typography>
         <Typography>
-          Date of Study: from {submittedFromDate} to {submittedToDate}
+          Date of Study: from {educExp.startDate} to {educExp.endDate}
         </Typography>
       </Box>
       <Box
@@ -54,13 +39,13 @@ function DisplayField({
           marginBottom: "20px",
         }}>
         <Typography variant="h5">Practical Experience</Typography>
-        <Typography>Company Name: {submittedCompany}</Typography>
-        <Typography>Position Title: {submittedPosition}</Typography>
+        <Typography>Company Name: {pracExp.companyName}</Typography>
+        <Typography>Position Title: {pracExp.PositionTitle}</Typography>
         <Typography>
-          Main Responsibilities: {submittedResponsibilities}
+          Main Responsibilities: {pracExp.Responsibilities}
         </Typography>
         <Typography>
-          Date of Study: from {submittedFrom} to {submittedTo}
+          Date of Study: from {pracExp.startDate} to {pracExp.endDate}
         </Typography>
       </Box>
     </Container>

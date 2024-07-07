@@ -1,82 +1,62 @@
-import React, { useState } from "react";
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function PracExp({
-  setSubmittedCompany,
-  setSubmittedPosition,
-  setSubmittedResponsibilities,
-  setSubmittedFrom,
-  setSubmittedTo,
-}) {
-  const [company, setCompany] = useState("");
-  const [position, setPosition] = useState("");
-  const [responsibilities, setResponsibilities] = useState("");
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-
-  const handleCompanyChange = (e) => setCompany(e.target.value);
-  const handlePositionChange = (e) => setPosition(e.target.value);
-  const handleResponsibilitiesChange = (e) =>
-    setResponsibilities(e.target.value);
-  const handleFromChange = (e) => setFrom(e.target.value);
-  const handleToChange = (e) => setTo(e.target.value);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmittedCompany(company);
-    setSubmittedPosition(position);
-    setSubmittedResponsibilities(responsibilities);
-    setSubmittedFrom(from);
-    setSubmittedTo(to);
+function PracExp({ handlePracExp }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    handlePracExp(name, value);
   };
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
 
   return (
     <Container className="container">
       <h1>Practical Experience</h1>
       <Box
         component="form"
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
+          name="companyName"
           label="Company Name"
-          value={company}
-          onChange={handleCompanyChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
+          name="PositionTitle"
           label="Position Title"
-          value={position}
-          onChange={handlePositionChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
+          name="Responsibilities"
           label="Main Responsibilities"
-          value={responsibilities}
-          onChange={handleResponsibilitiesChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
+          name="startDate"
           label="From Date"
           type="date"
-          value={from}
-          onChange={handleFromChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
+          name="endDate"
           label="To Date"
           type="date"
-          value={to}
-          onChange={handleToChange}
+          onChange={handleChange}
           variant="outlined"
           fullWidth
         />
-        <Button type="submit" variant="contained" color="primary">
+        {/* <Button type="submit" variant="contained" color="primary">
           Submit
-        </Button>
+        </Button> */}
       </Box>
     </Container>
   );
