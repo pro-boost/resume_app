@@ -1,21 +1,22 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function EducExp({ handleEducExp }) {
+function EducExp({ handleEducExp, handleSubmit }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handleEducExp(name, value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <Container className="container">
       <h1>Educational Experience</h1>
       <Box
         component="form"
-        // onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
           name="schoolName"
@@ -47,9 +48,9 @@ function EducExp({ handleEducExp }) {
           variant="outlined"
           fullWidth
         />
-        {/* <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary">
           Submit
-        </Button> */}
+        </Button>
       </Box>
     </Container>
   );

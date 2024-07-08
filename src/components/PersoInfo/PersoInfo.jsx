@@ -1,13 +1,14 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function PersoInfo({ handlePersonalInfo }) {
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  // };
+function PersoInfo({ handlePersonalInfo, handleSubmit }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handlePersonalInfo(name, value);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit();
   };
 
   return (
@@ -15,7 +16,7 @@ function PersoInfo({ handlePersonalInfo }) {
       <h1>Personal Information</h1>
       <Box
         component="form"
-        // onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
           name="name"
@@ -48,9 +49,9 @@ function PersoInfo({ handlePersonalInfo }) {
           variant="outlined"
           fullWidth
         />
-        {/* <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary">
           Submit
-        </Button> */}
+        </Button>
       </Box>
     </Container>
   );

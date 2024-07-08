@@ -1,21 +1,22 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function PracExp({ handlePracExp }) {
+function PracExp({ handlePracExp, handleSubmit }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handlePracExp(name, value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit();
+  };
 
   return (
     <Container className="container">
       <h1>Practical Experience</h1>
       <Box
         component="form"
-        // onSubmit={handleSubmit}
+        onSubmit={onSubmit}
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
           name="companyName"
@@ -54,9 +55,9 @@ function PracExp({ handlePracExp }) {
           variant="outlined"
           fullWidth
         />
-        {/* <Button type="submit" variant="contained" color="primary">
+        <Button type="submit" variant="contained" color="primary">
           Submit
-        </Button> */}
+        </Button>
       </Box>
     </Container>
   );

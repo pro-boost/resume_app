@@ -40,9 +40,9 @@ function DisplayField({ personalInfo, educExp, pracExp }) {
         }}>
         <Typography variant="h5">Practical Experience</Typography>
         <Typography>Company Name: {pracExp.companyName}</Typography>
-        <Typography>Position Title: {pracExp.PositionTitle}</Typography>
+        <Typography>Position Title: {pracExp.positionTitle}</Typography>
         <Typography>
-          Main Responsibilities: {pracExp.Responsibilities}
+          Main Responsibilities: {pracExp.responsibilities}
         </Typography>
         <Typography>
           Date of Study: from {pracExp.startDate} to {pracExp.endDate}
