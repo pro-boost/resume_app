@@ -4,6 +4,7 @@ import DisplayField from "./components/DisplayField/DisplayField";
 import PersoInfo from "./components/PersoInfo/PersoInfo";
 import EducExp from "./components/EducExp/EducExp";
 import PracExp from "./components/PracExp/PracExp";
+
 function App() {
   const [personalInfo, setPersonalInfo] = useState({
     name: "Michael G Scott",
@@ -54,6 +55,25 @@ function App() {
   const handleSubmittedPracExp = () => {
     setSubmittedData((prevState) => ({ ...prevState, pracExp }));
   };
+
+  const clearPracExp = () => {
+    setPracExp({
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      startDate: "",
+      endDate: "",
+    });
+  };
+  const clearEducExp = () => {
+    setEducExp({
+      schoolName: "",
+      title: " ",
+      startDate: "",
+      endDate: "",
+    });
+  };
+
   return (
     <div className="cv_body">
       <div className="cv_app">
@@ -65,10 +85,14 @@ function App() {
           <EducExp
             handleEducExp={handleEducExp}
             handleSubmit={handleSubmittedEducExp}
+            handleClear={clearEducExp}
+            educExp={educExp}
           />
           <PracExp
             handlePracExp={handlePracExp}
             handleSubmit={handleSubmittedPracExp}
+            handleClear={clearPracExp}
+            pracExp={pracExp}
           />
         </div>
         <div className="display">

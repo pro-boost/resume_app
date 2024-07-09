@@ -1,6 +1,6 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function PracExp({ handlePracExp, handleSubmit }) {
+function PracExp({ handlePracExp, handleSubmit, handleClear, pracExp }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handlePracExp(name, value);
@@ -21,20 +21,23 @@ function PracExp({ handlePracExp, handleSubmit }) {
         <TextField
           name="companyName"
           label="Company Name"
+          value={pracExp.companyName}
           onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
-          name="PositionTitle"
+          name="positionTitle"
           label="Position Title"
+          value={pracExp.positionTitle}
           onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <TextField
-          name="Responsibilities"
+          name="responsibilities"
           label="Main Responsibilities"
+          value={pracExp.responsibilities}
           onChange={handleChange}
           variant="outlined"
           fullWidth
@@ -43,6 +46,7 @@ function PracExp({ handlePracExp, handleSubmit }) {
           name="startDate"
           label="From Date"
           type="date"
+          value={pracExp.startDate}
           onChange={handleChange}
           variant="outlined"
           fullWidth
@@ -51,12 +55,16 @@ function PracExp({ handlePracExp, handleSubmit }) {
           name="endDate"
           label="To Date"
           type="date"
+          value={pracExp.endDate}
           onChange={handleChange}
           variant="outlined"
           fullWidth
         />
         <Button type="submit" variant="contained" color="primary">
           Submit
+        </Button>
+        <Button onClick={handleClear} variant="contained" color="primary">
+          Clear
         </Button>
       </Box>
     </Container>

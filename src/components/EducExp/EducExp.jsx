@@ -1,6 +1,6 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function EducExp({ handleEducExp, handleSubmit }) {
+function EducExp({ handleEducExp, handleSubmit, handleClear, educExp }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
     handleEducExp(name, value);
@@ -20,6 +20,7 @@ function EducExp({ handleEducExp, handleSubmit }) {
         sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <TextField
           name="schoolName"
+          value={educExp.schoolName}
           label="School Name"
           onChange={handleChange}
           variant="outlined"
@@ -27,6 +28,7 @@ function EducExp({ handleEducExp, handleSubmit }) {
         />
         <TextField
           name="title"
+          value={educExp.title}
           label="Title of Study"
           onChange={handleChange}
           variant="outlined"
@@ -34,6 +36,7 @@ function EducExp({ handleEducExp, handleSubmit }) {
         />
         <TextField
           name="startDate"
+          value={educExp.startDate}
           label="Start Date"
           type="date"
           onChange={handleChange}
@@ -42,6 +45,7 @@ function EducExp({ handleEducExp, handleSubmit }) {
         />
         <TextField
           name="endDate"
+          value={educExp.endDate}
           label="End Date"
           type="date"
           onChange={handleChange}
@@ -50,6 +54,9 @@ function EducExp({ handleEducExp, handleSubmit }) {
         />
         <Button type="submit" variant="contained" color="primary">
           Submit
+        </Button>
+        <Button onClick={handleClear} variant="contained" color="primary">
+          Clear
         </Button>
       </Box>
     </Container>
