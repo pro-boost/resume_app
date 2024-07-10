@@ -1,9 +1,16 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function EducExp({ handleEducExp, handleSubmit, handleClear, educExp }) {
+function EducExp({
+  handleEducExp,
+  handleSubmit,
+  handleClear,
+  educExp,
+  index,
+  handleAdd,
+}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    handleEducExp(name, value);
+    handleEducExp(index, name, value);
   };
 
   const onSubmit = (e) => {
@@ -57,6 +64,9 @@ function EducExp({ handleEducExp, handleSubmit, handleClear, educExp }) {
         </Button>
         <Button onClick={handleClear} variant="contained" color="primary">
           Clear
+        </Button>
+        <Button onClick={handleAdd} variant="contained" color="primary">
+          Add
         </Button>
       </Box>
     </Container>

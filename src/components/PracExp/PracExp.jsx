@@ -1,9 +1,16 @@
 import { TextField, Button, Container, Box } from "@mui/material";
 
-function PracExp({ handlePracExp, handleSubmit, handleClear, pracExp }) {
+function PracExp({
+  handlePracExp,
+  handleSubmit,
+  handleClear,
+  pracExp,
+  handleAdd,
+  index,
+}) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    handlePracExp(name, value);
+    handlePracExp(index, name, value);
   };
 
   const onSubmit = (e) => {
@@ -65,6 +72,9 @@ function PracExp({ handlePracExp, handleSubmit, handleClear, pracExp }) {
         </Button>
         <Button onClick={handleClear} variant="contained" color="primary">
           Clear
+        </Button>
+        <Button onClick={handleAdd} variant="contained" color="primary">
+          Add
         </Button>
       </Box>
     </Container>
